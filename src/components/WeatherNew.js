@@ -1,11 +1,9 @@
-import { TextField } from '@material-ui/core';
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getData } from './actions/weatherActions';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import { getData } from '../actions/weatherActions';
 
-class App extends React.Component {
+class WeatherNew extends React.Component {
 	state = {
 		userInput: '',
 		isSearching: false,
@@ -24,16 +22,6 @@ class App extends React.Component {
 		await triggerGetData(userInput);
 		this.setState({ userInput: '', isSearching: false });
 	};
-	dateToday = (d) => {
-		let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-		let month = months[d.getMonth()];
-		let year = d.getFullYear();
-		let date = d.getDate();
-
-		return `${month} ${date} ${year}`;
-	};
-
 	render() {
 		let handleWeather = 'AppDefault';
 		const { isSearching, userInput } = this.state;
@@ -61,40 +49,22 @@ class App extends React.Component {
 		if (weather.weather && weather.weather[0] && weather.weather[0].main && weather.weather[0].main === 'Drizzle') {
 			handleWeather = 'AppRainy';
 		}
-
 		return (
-			<div className={handleWeather}>
-				<main>
-					<div>
-						<form className="search-box" noValidate autoComplete="off" onSubmit={this.searchSubmit}>
-							<TextField id="filled-basic" className="search-bar" variant="filled" label="Search City" onChange={this.onChange} value={userInput}>
-								{/* <input type="text" value={userInput} onChange={this.onChange} /> */}
-							</TextField>
+			<div>
+				<div className={handleWeather}>
+					<div className="search-box">
+						<form className="search-bar" onSubmit={this.searchSubmit}>
+							<input type="text" placeholder="search city" value={userInput} onChange={this.onChange} />
 						</form>
-						{typeof weather.main != 'undefined' ? (
-							<div>
-								<div className="date">{this.dateToday(new Date())}</div>
-								<div className="location-box">
-									<div className="location">
-										{weather.name}, {weather.sys.country}
-									</div>
-									<div className="weather">
-										{weather.weather[0].main}, {weather.weather[0].description}
-									</div>
-								</div>
-								<div className="temp-box">
-									<br />
-									<h2 className="temp1">{Math.round(weather.main.temp)}° F</h2>
-									<div className="temp2">
-										Hi {Math.round(weather.main.temp_max)}° F Lo {Math.round(weather.main.temp_min)}° F
-									</div>
-								</div>
-							</div>
-						) : (
-							' '
-						)}
 					</div>
-				</main>
+					{weather.main != 'undefined' ? (
+						<div className="location-box">
+							<div className="location">{weather.weather}</div>
+						</div>
+					) : (
+						' '
+					)}
+				</div>
 			</div>
 		);
 	}
@@ -105,4 +75,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return { triggerGetData: bindActionCreators(getData, dispatch) };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherNew);
