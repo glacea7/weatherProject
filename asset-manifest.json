@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/weatherProject/static/css/main.b4402bae.chunk.css",
+    "main.js": "/weatherProject/static/js/main.4d197715.chunk.js",
+    "main.js.map": "/weatherProject/static/js/main.4d197715.chunk.js.map",
+    "runtime-main.js": "/weatherProject/static/js/runtime-main.96e8c700.js",
+    "runtime-main.js.map": "/weatherProject/static/js/runtime-main.96e8c700.js.map",
+    "static/js/2.57a85075.chunk.js": "/weatherProject/static/js/2.57a85075.chunk.js",
+    "static/js/2.57a85075.chunk.js.map": "/weatherProject/static/js/2.57a85075.chunk.js.map",
+    "index.html": "/weatherProject/index.html",
+    "precache-manifest.42783239dace12ff4a05430f6c414f5e.js": "/weatherProject/precache-manifest.42783239dace12ff4a05430f6c414f5e.js",
+    "service-worker.js": "/weatherProject/service-worker.js",
+    "static/css/main.b4402bae.chunk.css.map": "/weatherProject/static/css/main.b4402bae.chunk.css.map",
+    "static/js/2.57a85075.chunk.js.LICENSE.txt": "/weatherProject/static/js/2.57a85075.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/weatherProject/static/media/thunderStorm.84f3e25e.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.96e8c700.js",
+    "static/js/2.57a85075.chunk.js",
+    "static/css/main.b4402bae.chunk.css",
+    "static/js/main.4d197715.chunk.js"
+  ]
+}
