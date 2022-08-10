@@ -67,7 +67,7 @@ class App extends React.Component {
 				<main>
 					<div>
 						<form className="search-box" noValidate autoComplete="off" onSubmit={this.searchSubmit}>
-							<TextField id="filled-basic" className="search-bar" variant="filled" label="Search City" onChange={this.onChange} value={userInput}>
+							<TextField id="filled-basic" className="search-bar" variant="filled" label="Search US City" onChange={this.onChange}  value={userInput}>
 								{/* <input type="text" value={userInput} onChange={this.onChange} /> */}
 							</TextField>
 						</form>
@@ -91,10 +91,11 @@ class App extends React.Component {
 								</div>
 							</div>
 						) : (
-							' '
+							<br />
 						)}
 					</div>
 				</main>
+				<footer>Made with OpenWeather Current Weather Data API</footer>
 			</div>
 		);
 	}
